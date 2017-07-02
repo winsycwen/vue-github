@@ -1,0 +1,55 @@
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont {
+	font-family: 'iconfont' !important;
+	font-size: 16px;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: .2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// github logo
+.icon-github {
+	@extend .iconfont;
+	content: '\e607';
+}
+
+// dashboard icon
+.icon-dashboard {
+	@extend .iconfont;
+	content: '\e64b';
+}
+
+// marketplace icon
+.icon-marketplace {
+	@extend .iconfont;
+	content: '\e632';
+}
+
+// explore icon
+.icon-explore {
+	@extend .iconfont;
+	content: '\e640';
+}
+
+// signout icon
+.icon-signout {
+	@extend .iconfont;
+	content: '\e717';
+}
+
+// star icon
+.icon-star {
+	@extend .iconfont;
+	content: '\e733';
+}
+
+// repos icon
+.icon-repos {
+	@extend .iconfont;
+	content: '\e707';
+}

@@ -1,0 +1,41 @@
+@import 'normalize';
+
+body {
+	font-size: 14px;
+	background-color: #fafbfc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.hide {
+	display: none;
+}
+
+// 清除浮动
+.clearfix {
+	display: block;
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+// 字体图标
+@font-face {
+	font-family: 'iconfont';
+	src: url('../fonts/iconfont.ttf') format('truetype'),
+		url('../fonts/iconfont.svg') format('svg');
+}
