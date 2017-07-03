@@ -4,7 +4,7 @@
   "description": "npm init -y",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --port 9000"
+    "dev": "webpack-dev-server --open --port 9000 --hot"
   },
   "repository": {
     "type": "git",

@@ -13,11 +13,18 @@
 				<router-link class="title" :to="item.link">{{item.title}}</router-link>
 			</li>
 		</ul>
+
+		<ul v-if="navList" class="repo-nav">
+			<li class="nav" v-for="item in navList">
+				{{item.title}}<span class="num" v-if="item.num">{{item.num}}</span>
+			</li>
+		</ul>
 	</header>
 </template>
 
 <script lang="js">
 export default {
+	props: ['navList'],
 	data: () => {
 		return {
 			hide: true,
@@ -25,7 +32,7 @@ export default {
 				link: '/',
 				title: 'Dashboard'
 			}, {
-				link: '/profile',
+				link: '/profile/winsycwen',
 				title: 'Profile'
 			}]
 		};
@@ -38,7 +45,6 @@ export default {
 .nav-bar {
 	position: relative;
 	width: 100%;
-	height: 50px;
 	line-height: 50px;
 	background-color: #1e2327;
 	// 页面logo
@@ -92,7 +98,10 @@ export default {
 		}
 	}
 
+	// 下拉菜单
 	.menu-list {
+		position: absolute;
+    	width: 100%;
 		padding: 7px 0;
 		background-color: #1e2327;
 		.list-item {
@@ -102,6 +111,37 @@ export default {
 		.title {
 			display: block;
 			color: rgba(255, 255, 255, .75);
+		}
+	}
+
+	// 子导航
+	.repo-nav {
+		padding: 0 7px;
+		height: 36px;
+		line-height: 36px;
+		background-color: #1e2327;
+		overflow-x: scroll;
+		white-space: nowrap;
+		.nav {
+			display: inline-block;
+			margin-right: 15px;
+			color: rgba(255, 255, 255, .75);
+		}
+		.title {
+			color: rgba(255, 255, 255, .75);
+		}
+		.num {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 20px;
+			background-color: rgba(255, 255, 255, .15);
+    		font-size: 12px;
+    		line-height: 20px;
+    		text-align: center;
+		}
+		.router-link-exact-active {
+			color: #fff;
 		}
 	}
 }	

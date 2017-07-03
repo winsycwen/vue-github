@@ -33,6 +33,31 @@ a {
 	}
 }
 
+// loading图标
+.loading {
+	position: relative;
+	height: 50px;
+	text-align: center;
+	
+	&:before {
+		display: inline-block;
+		content: '';
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		border: 6px solid transparent;
+		border-top-color: rgba(3, 102, 214, 0.6);
+		border-right-color: rgba(3, 102, 214, 0.6);
+		animation: loading 1s infinite linear;
+	}
+}
+
+@keyframes loading {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 // 字体图标
 @font-face {
 	font-family: 'iconfont';
