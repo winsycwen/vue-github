@@ -7,5 +7,7 @@ import './assets/css/common.scss';
 new Vue({
 	el: '#app',
 	router,
-	render: h => h(App)
+	render: function(h) {
+		return h(App);
+	}
 });

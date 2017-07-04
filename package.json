@@ -4,7 +4,9 @@
   "description": "npm init -y",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --port 9000 --hot"
+    "watch": "webpack-dev-server --open --env=dev",
+    "build:dev": "webpack --env=dev",
+    "build:prod": "webpack --env=prod"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,8 @@
     "vue-template-compiler": "^2.3.4",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "webpack-merge": "^4.1.0"
   }
 }
