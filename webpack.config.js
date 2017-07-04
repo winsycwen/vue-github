@@ -9,7 +9,7 @@ module.exports = {
 	entry: './src/main.js',
 	output: {
 		path: path.join(__dirname, 'dist'),	// 输出目录绝对路径
-		publicPath: '/dist/',
+		publicPath: '/vue-github/dist/',
 		filename: 'bundle.js'
 	},
 	module: {
