@@ -1,11 +1,13 @@
 <template>
 	<header class="nav-bar">
-		<div class="logo">
-			<router-link class="logo-link" to="/"></router-link>
-		</div>
+		<div class="bar">
+			<div class="logo">
+				<router-link class="logo-link" to="/"></router-link>
+			</div>
 
-		<div class="menu-logo" @click="hide = !hide">
-			<span class="line"></span>
+			<div class="menu-logo" @click="hide = !hide">
+				<span class="line"></span>
+			</div>
 		</div>
 
 		<ul class="menu-list" v-bind:class="{hide: hide}">
@@ -45,8 +47,11 @@ export default {
 .nav-bar {
 	position: relative;
 	width: 100%;
-	line-height: 50px;
 	background-color: #1e2327;
+	.bar {
+		height: 50px;
+		line-height: 50px;
+	}
 	// 页面logo
 	.logo {
 		position: absolute;
