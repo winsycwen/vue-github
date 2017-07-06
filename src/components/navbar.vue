@@ -36,7 +36,7 @@ export default {
 				link: '/',
 				title: 'Dashboard'
 			}, {
-				link: '/profile/winsycwen',
+				link: '/user/winsycwen',
 				title: 'Profile'
 			}]
 		};

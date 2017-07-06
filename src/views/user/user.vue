@@ -1,5 +1,5 @@
 <template>
-	<div class="content profile">
+	<div class="content">
 		<Navbar :navList="navList"></Navbar>
 
 		<router-view :userInfo="userInfo"></router-view>
@@ -37,7 +37,7 @@ export default {
 						followers, 
 						following
 					} = data;
-					let subPath = `/profile/${data.name}`;
+					let subPath = `/user/${data.name}`;
 
 					// 设置用户页面信息
 					vm.userInfo = data;

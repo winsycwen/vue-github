@@ -1,5 +1,5 @@
 <template>
-	<div class="profile-index-content">
+	<div class="user-index-content">
 		<!-- 用户信息 -->
 		<section class="user-info clearfix">
 			<div class="avatar-wrap">
@@ -67,7 +67,7 @@ export default {
 <style lang="scss">
 @import '../../assets/css/mixins.scss';
 @import '../../assets/fonts/fonts.scss';
-.profile-index-content {
+.user-index-content {
 	// 用户信息
 	.user-info {
 		padding: 15px;
