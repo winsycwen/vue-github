@@ -53,3 +53,15 @@
 	@extend .iconfont;
 	content: '\e707';
 }
+
+// location icon
+.icon-location {
+	@extend .iconfont;
+	content: '\e665';
+}
+
+// fork icon
+.icon-fork {
+	@extend .iconfont;
+	content: '\e634';
+}

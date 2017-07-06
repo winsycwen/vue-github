@@ -1,10 +1,10 @@
 <template>
-	<div class="content">
+	<div class="content dashboard">
 		<!-- 头部内容 -->
-		<router-view></router-view>
+		<Navbar></Navbar>
 
 		<!-- 搜索栏 -->
-		<form action="" class="search-bar">
+		<form class="search-bar">
 			<input type="text" placeholder="Search Github">
 		</form>
 
@@ -12,99 +12,81 @@
 		<section class="repos-contribute repos">
 			<h2 class="title">Repositories you contribute to</h2>
 
-			<div v-if="!reposContribute.length" class="loading"></div>
-			<ul v-else class="list">
-				<li class="item" v-for="item in reposContribute">
-					
-					<router-link class="link clearfix" :to="item.full_name | joinDelimit">
-						<span class="repos-icon"></span>
-						<span class="repos-name">{{item.full_name}}</span>
-						<span class="star-icon">{{item.stargazers_count}}</span>
-					</router-link>
-
-				</li>
-			</ul>
+			<div v-if="loadingA" class="loading"></div>
+			<ReposList v-else :list="reposContribute"></ReposList>
 		</section>
 
 		<!-- 收藏的仓库 -->
-		<section v-if="reposStarred != []" class="repos-starred repos">
+		<section class="repos-starred repos">
 			<h2 class="title">Starred Repositories</h2>
 
-			<div v-if="!reposStarred.length" class="loading"></div>
-			<ul v-else class="list">
-				<li class="item" v-for="item in reposStarred">
-
-					<router-link class="link clearfix" :to="item.full_name | joinDelimit">
-						<span class="repos-icon"></span>
-						<span class="repos-name">{{item.full_name}}</span>
-							<span class="star-icon">{{item.stargazers_count}}</span>
-					</router-link>
-
-				</li>
-			</ul>
+			<div v-if="loadingB" class="loading"></div>
+			<ReposList v-else :list="reposStarred"></ReposList>
 		</section>
 	</div>
 </template>
 
 <script>
+import Navbar from '../components/navbar.vue';
+import ReposList from '../components/reposList.vue';
+
 export default {
+	components: {
+		Navbar,
+		ReposList
+	},
 	data() {
 		return {
+			loadingA: true,
+			loadingB: true,
 			reposContribute: [],
 			reposStarred: []
 		};
 	},
-	filters: {
-		/**
-		 *	为链接添加前缀分隔符'/'
-		 **/
-		joinDelimit(value) {
-			if(!value) return value;
-			return '/' + value;
+	watch: {
+		reposContribute() {
+			this.loadingA = false;
+		},
+		reposStarred() {
+			this.loadingB = false;
 		}
 	},
 	methods: {
-		simpleGet(url, callback) {
-			if(url == '' || typeof callback != 'function') {
-				return;
-			}
-			
-			let xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function() {
-				if(xhr.readyState == 4) {
-					if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-						callback(xhr.responseText);
-					} else {
-						alert('Get message error');
-					}
-				}
-			};
-			xhr.open('get', url, true);
-			xhr.send(null);
-		},
 		/**
 		 *	获取用户参与的仓库信息
 		 **/
 		getReposContribute() {
-			var that = this,
-				url = 'https://api.github.com/users/winsycwen/repos?sort=pushed&direction=asc';
+			var _this = this,
+				url = 'https://api.github.com/users/winsycwen/repos';
 
-			that.simpleGet(url, function(data = []) {
-				data = JSON.parse(data);
-				that.reposContribute = data.slice(data.length - 3);
-			});
+			_this.$http
+				.get(url, {
+					params: {
+						sort: 'pushed',
+						direction: 'asc'
+					}
+				})
+				.then(response => {
+					_this.reposContribute = response.body.slice(-3);
+				}, response => {
+					alert(response.statusText);
+				});
+			
 		},
 		/**
 		 *	获取用户收藏的仓库信息
 		 **/
 		getReposStarred() {
-			var that = this,
+			var _this = this,
 				url = 'https://api.github.com/users/winsycwen/starred';
 
-			that.simpleGet(url, function(data = []) {
-				data = JSON.parse(data);
-				that.reposStarred = data.slice(0, 10);
-			});
+			_this.$http
+				.get(url)
+				.then(response => {
+					_this.reposStarred = response.body.slice(0, 10);
+				}, response => {
+					alert(response.statusText);
+				});
 		}
 	},
 	created() {
@@ -114,80 +96,54 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/fonts/fonts.scss';
 @import '../assets/css/mixins.scss';
 
-// 搜索栏
-.search-bar {
-	margin: 15px 15px 0;
-	input {
-		width: 100%;
-		height: 34px;
-		padding: 6px 8px;
-		box-sizing: border-box;
-		border: 1px solid $border-color;
-		border-radius: 3px;
-		outline: none;
-		&:focus {
-			border-color: #2188ff;
-			box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
+.dashboard {
+	// 搜索栏
+	.search-bar {
+		margin: 15px 15px 0;
+		input {
+			width: 100%;
+			height: 34px;
+			padding: 6px 8px;
+			box-sizing: border-box;
+			border: 1px solid $border-color;
+			border-radius: 3px;
+			outline: none;
+			&:focus {
+				border-color: #2188ff;
+				box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
+			}
 		}
 	}
-}
 
-// 仓库信息
-.repos {
-	margin: 15px 15px 0;
-	border: 1px solid $border-color;
-	border-radius: 3px;
-	background-color: #fff;
-	.title {
-		height: 40px;
-		padding-left: 15px;
-		line-height: 40px;
-		font-size: 14px;
-		color: #2f363d;
-	}
-
-	.item {
-		padding: 14px;
-		border-top: 1px solid $border-color;
-	}
-	.link {
-		color: #0366d6;
+	// 仓库信息
+	.repos {
+		margin: 15px 15px 0;
+		border: 1px solid $border-color;
+		border-radius: 3px;
+		background-color: #fff;
+		.title {
+			height: 40px;
+			margin: 0;
+			padding-left: 15px;
+			border-bottom: 1px solid $border-color;
+			line-height: 40px;
+			font-size: 14px;
+			color: #2f363d;
+		}
 	}
 
-	.repos-icon {
-		display: inline-block;
-	}
-	.repos-icon:before {
-		margin-right: 4px;
-		color: $font-gray;
-		@extend .icon-repos;
-	}
-	.repos-name {
-		display: inline-block;
-		max-width: 78%;
-		word-break: break-word;
-	}
-	.star-icon {
-		float: right;
-		color: $font-gray;
-	}
-	.star-icon:after {
-		margin-left: 3px;
-		font-size: 14px;
-		@extend .icon-star;
-	}
-}
-
-.repos-starred {
-	.title:before {
-		margin-right: 8px;
-		font-size: 14px;
-		color: $font-gray;
-		@extend .icon-star;
+	.repos-starred {
+		margin-bottom: 15px;
+		.title:before {
+			margin-right: 8px;
+			font-size: 14px;
+			color: $font-gray;
+			@extend .icon-star;
+		}
 	}
 }
 </style>

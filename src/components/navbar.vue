@@ -1,5 +1,5 @@
 <template>
-	<header class="nav-bar">
+	<header class="component-nav-bar">
 		<div class="bar">
 			<div class="logo">
 				<router-link class="logo-link" to="/"></router-link>
@@ -16,9 +16,11 @@
 			</li>
 		</ul>
 
-		<ul v-if="navList" class="repo-nav">
+		<ul v-if="navList" class="sub-nav">
 			<li class="nav" v-for="item in navList">
-				{{item.title}}<span class="num" v-if="item.num">{{item.num}}</span>
+				<router-link class="nav-link" :to="item.link">
+					{{item.title}}<span class="num" v-if="item.num">{{item.num}}</span>
+				</router-link>
 			</li>
 		</ul>
 	</header>
@@ -42,9 +44,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/fonts/fonts.scss';
-.nav-bar {
+.component-nav-bar {
 	position: relative;
 	width: 100%;
 	background-color: #1e2327;
@@ -120,19 +122,20 @@ export default {
 	}
 
 	// 子导航
-	.repo-nav {
+	.sub-nav {
 		padding: 0 7px;
 		height: 36px;
 		line-height: 36px;
+		text-align: center;
 		background-color: #1e2327;
-		overflow-x: scroll;
+		overflow-x: auto;
 		white-space: nowrap;
 		.nav {
 			display: inline-block;
 			margin-right: 15px;
 			color: rgba(255, 255, 255, .75);
 		}
-		.title {
+		.nav-link {
 			color: rgba(255, 255, 255, .75);
 		}
 		.num {
