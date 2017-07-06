@@ -1,17 +1,11 @@
 
-.avatar[data-v-1a74c034] {
-  width: 110px;
-  height: 110px;
-  vertical-align: middle;
-}
-
 @charset "UTF-8";
 /**
  *	字体图标
  *	author: winsycwen
  *	date:	2017-07-02 16:59:15
  **/
-.iconfont[data-v-19f17687], .icon-github[data-v-19f17687], .nav-bar .logo-link[data-v-19f17687]:after, .icon-dashboard[data-v-19f17687], .icon-marketplace[data-v-19f17687], .icon-explore[data-v-19f17687], .icon-signout[data-v-19f17687], .icon-star[data-v-19f17687], .icon-repos[data-v-19f17687] {
+.iconfont, .icon-github, .component-nav-bar .logo-link:after, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .icon-repos, .icon-location, .icon-fork {
   font-family: 'iconfont' !important;
   font-size: 16px;
   font-weight: normal;
@@ -19,59 +13,65 @@
   -webkit-text-stroke-width: .2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-github[data-v-19f17687], .nav-bar .logo-link[data-v-19f17687]:after {
+.icon-github, .component-nav-bar .logo-link:after {
   content: '\E607';
 }
-.icon-dashboard[data-v-19f17687] {
+.icon-dashboard {
   content: '\E64B';
 }
-.icon-marketplace[data-v-19f17687] {
+.icon-marketplace {
   content: '\E632';
 }
-.icon-explore[data-v-19f17687] {
+.icon-explore {
   content: '\E640';
 }
-.icon-signout[data-v-19f17687] {
+.icon-signout {
   content: '\E717';
 }
-.icon-star[data-v-19f17687] {
+.icon-star {
   content: '\E733';
 }
-.icon-repos[data-v-19f17687] {
+.icon-repos {
   content: '\E707';
 }
-.nav-bar[data-v-19f17687] {
+.icon-location {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.component-nav-bar {
   position: relative;
   width: 100%;
   background-color: #1e2327;
 }
-.nav-bar .bar[data-v-19f17687] {
+.component-nav-bar .bar {
     height: 50px;
     line-height: 50px;
 }
-.nav-bar .logo[data-v-19f17687] {
+.component-nav-bar .logo {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
 }
-.nav-bar .logo-link[data-v-19f17687] {
+.component-nav-bar .logo-link {
     display: inline-block;
     vertical-align: middle;
 }
-.nav-bar .logo-link[data-v-19f17687]:after {
+.component-nav-bar .logo-link:after {
       width: 32px;
       height: 32px;
       font-size: 32px;
       color: #fff;
 }
-.nav-bar .menu-logo[data-v-19f17687] {
+.component-nav-bar .menu-logo {
     position: relative;
     display: inline-block;
     width: 44px;
     height: 14px;
     vertical-align: middle;
 }
-.nav-bar .menu-logo[data-v-19f17687]:before, .nav-bar .menu-logo[data-v-19f17687]:after {
+.component-nav-bar .menu-logo:before, .component-nav-bar .menu-logo:after {
       content: '';
       position: absolute;
       left: 50%;
@@ -80,13 +80,13 @@
       height: 2px;
       background-color: #c7c8c9;
 }
-.nav-bar .menu-logo[data-v-19f17687]:before {
+.component-nav-bar .menu-logo:before {
       top: 0;
 }
-.nav-bar .menu-logo[data-v-19f17687]:after {
+.component-nav-bar .menu-logo:after {
       bottom: 0;
 }
-.nav-bar .menu-logo .line[data-v-19f17687] {
+.component-nav-bar .menu-logo .line {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -95,37 +95,38 @@
       height: 2px;
       background-color: #c7c8c9;
 }
-.nav-bar .menu-list[data-v-19f17687] {
+.component-nav-bar .menu-list {
     position: absolute;
     width: 100%;
     padding: 7px 0;
     background-color: #1e2327;
 }
-.nav-bar .menu-list .list-item[data-v-19f17687] {
+.component-nav-bar .menu-list .list-item {
       margin: 0 13px;
       line-height: 38px;
 }
-.nav-bar .menu-list .title[data-v-19f17687] {
+.component-nav-bar .menu-list .title {
       display: block;
       color: rgba(255, 255, 255, 0.75);
 }
-.nav-bar .repo-nav[data-v-19f17687] {
+.component-nav-bar .sub-nav {
     padding: 0 7px;
     height: 36px;
     line-height: 36px;
+    text-align: center;
     background-color: #1e2327;
-    overflow-x: scroll;
+    overflow-x: auto;
     white-space: nowrap;
 }
-.nav-bar .repo-nav .nav[data-v-19f17687] {
+.component-nav-bar .sub-nav .nav {
       display: inline-block;
       margin-right: 15px;
       color: rgba(255, 255, 255, 0.75);
 }
-.nav-bar .repo-nav .title[data-v-19f17687] {
+.component-nav-bar .sub-nav .nav-link {
       color: rgba(255, 255, 255, 0.75);
 }
-.nav-bar .repo-nav .num[data-v-19f17687] {
+.component-nav-bar .sub-nav .num {
       display: inline-block;
       width: 20px;
       height: 20px;
@@ -135,8 +136,253 @@
       line-height: 20px;
       text-align: center;
 }
-.nav-bar .repo-nav .router-link-exact-active[data-v-19f17687] {
+.component-nav-bar .sub-nav .router-link-exact-active {
       color: #fff;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-user-repos-list .star-icon:before, .icon-repos, .component-user-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-user-repos-list .fork-icon:before {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .component-user-repos-list .star-icon:before {
+  content: '\E733';
+}
+.icon-repos, .component-user-repos-list .repos-icon:before {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork, .component-user-repos-list .fork-icon:before {
+  content: '\E634';
+}
+.component-user-repos-list .item {
+  padding: 15px;
+}
+.component-user-repos-list .item + .item {
+    border-top: 1px solid #d1d5da;
+}
+.component-user-repos-list .repos-title {
+  font-size: 0;
+}
+.component-user-repos-list .repos-icon,
+.component-user-repos-list .fork-icon {
+  display: inline-block;
+  margin-right: 4px;
+}
+.component-user-repos-list .repos-icon:before,
+  .component-user-repos-list .fork-icon:before {
+    color: #6a737d;
+}
+.component-user-repos-list .link {
+  color: #0366d6;
+}
+.component-user-repos-list .repos-name {
+  font-size: 14px;
+}
+.component-user-repos-list .about {
+  margin: 5px 0 5px 20px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #6a737d;
+  word-break: break-all;
+}
+.component-user-repos-list .info {
+  margin: 10px 0 0 20px;
+  font-size: 0;
+}
+.component-user-repos-list .star-icon {
+  display: inline-block;
+  color: #6a737d;
+  font-size: 12px;
+}
+.component-user-repos-list .star-icon:before {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-repos-list .star-icon:after, .icon-repos, .component-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-repos-list .fork-icon:before {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .component-repos-list .star-icon:after {
+  content: '\E733';
+}
+.icon-repos, .component-repos-list .repos-icon:before {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork, .component-repos-list .fork-icon:before {
+  content: '\E634';
+}
+.component-repos-list .item {
+  padding: 14px;
+}
+.component-repos-list .item + .item {
+    border-top: 1px solid #d1d5da;
+}
+.component-repos-list .link {
+  color: #0366d6;
+}
+.component-repos-list .repos-icon,
+.component-repos-list .fork-icon {
+  display: inline-block;
+}
+.component-repos-list .repos-icon:before,
+  .component-repos-list .fork-icon:before {
+    margin-right: 4px;
+    color: #6a737d;
+}
+.component-repos-list .repos-name {
+  display: inline-block;
+  max-width: 78%;
+  word-break: break-word;
+}
+.component-repos-list .star-icon {
+  float: right;
+  color: #6a737d;
+}
+.component-repos-list .star-icon:after {
+    margin-left: 3px;
+    font-size: 14px;
+}
+.component-repos-list-empty {
+  padding: 45px;
+  text-align: center;
+  color: #586069;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .dashboard .repos-starred .title:before, .icon-repos, .icon-location, .icon-fork {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .dashboard .repos-starred .title:before {
+  content: '\E733';
+}
+.icon-repos {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.dashboard .search-bar {
+  margin: 15px 15px 0;
+}
+.dashboard .search-bar input {
+    width: 100%;
+    height: 34px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    outline: none;
+}
+.dashboard .search-bar input:focus {
+      border-color: #2188ff;
+      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
+}
+.dashboard .repos {
+  margin: 15px 15px 0;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.dashboard .repos .title {
+    height: 40px;
+    margin: 0;
+    padding-left: 15px;
+    border-bottom: 1px solid #d1d5da;
+    line-height: 40px;
+    font-size: 14px;
+    color: #2f363d;
+}
+.dashboard .repos-starred {
+  margin-bottom: 15px;
+}
+.dashboard .repos-starred .title:before {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #6a737d;
 }
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -533,9 +779,6 @@ body {
   font-size: 14px;
   background-color: #fafbfc; }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
-
 ul {
   margin: 0;
   padding: 0;
@@ -564,7 +807,7 @@ a {
     width: 20px;
     height: 20px;
     border-radius: 20px;
-    border: 6px solid transparent;
+    border: 3px solid transparent;
     border-top-color: rgba(3, 102, 214, 0.6);
     border-right-color: rgba(3, 102, 214, 0.6);
     animation: loading 1s infinite linear; }
@@ -575,7 +818,11 @@ a {
 
 @font-face {
   font-family: 'iconfont';
-  src: url(/vue-github/dist/a38d5ecb0eec4e0355d9b80b7c3394fa.ttf) format("truetype"), url(/vue-github/dist/61ec66c8b24988f992be194ac7baea37.svg) format("svg"); }
+  src: url(/vue-github/dist/261db67f86812ca87e500700a0a3aa3b.ttf) format("truetype"), url(/vue-github/dist/547c4943c982fd183712f304d337e0c0.svg) format("svg"); }
+
+.user-stars-content {
+  background-color: #fff;
+}
 
 @charset "UTF-8";
 /**
@@ -583,7 +830,7 @@ a {
  *	author: winsycwen
  *	date:	2017-07-02 16:59:15
  **/
-.iconfont[data-v-a7abc3de], .icon-github[data-v-a7abc3de], .icon-dashboard[data-v-a7abc3de], .icon-marketplace[data-v-a7abc3de], .icon-explore[data-v-a7abc3de], .icon-signout[data-v-a7abc3de], .icon-star[data-v-a7abc3de], .repos .star-icon[data-v-a7abc3de]:after, .repos-starred .title[data-v-a7abc3de]:before, .icon-repos[data-v-a7abc3de], .repos .repos-icon[data-v-a7abc3de]:before {
+.iconfont, .icon-github, .component-footer .logo-icon:before, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .icon-repos, .icon-location, .icon-fork {
   font-family: 'iconfont' !important;
   font-size: 16px;
   font-weight: normal;
@@ -591,85 +838,144 @@ a {
   -webkit-text-stroke-width: .2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-github[data-v-a7abc3de] {
+.icon-github, .component-footer .logo-icon:before {
   content: '\E607';
 }
-.icon-dashboard[data-v-a7abc3de] {
+.icon-dashboard {
   content: '\E64B';
 }
-.icon-marketplace[data-v-a7abc3de] {
+.icon-marketplace {
   content: '\E632';
 }
-.icon-explore[data-v-a7abc3de] {
+.icon-explore {
   content: '\E640';
 }
-.icon-signout[data-v-a7abc3de] {
+.icon-signout {
   content: '\E717';
 }
-.icon-star[data-v-a7abc3de], .repos .star-icon[data-v-a7abc3de]:after, .repos-starred .title[data-v-a7abc3de]:before {
+.icon-star {
   content: '\E733';
 }
-.icon-repos[data-v-a7abc3de], .repos .repos-icon[data-v-a7abc3de]:before {
+.icon-repos {
   content: '\E707';
 }
-.search-bar[data-v-a7abc3de] {
-  margin: 15px 15px 0;
+.icon-location {
+  content: '\E665';
 }
-.search-bar input[data-v-a7abc3de] {
-    width: 100%;
-    height: 34px;
-    padding: 6px 8px;
-    box-sizing: border-box;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-    outline: none;
+.icon-fork {
+  content: '\E634';
 }
-.search-bar input[data-v-a7abc3de]:focus {
-      border-color: #2188ff;
-      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
+.component-footer {
+  padding: 15px;
+  border-top: 1px solid #d1d5da;
 }
-.repos[data-v-a7abc3de] {
-  margin: 15px 15px 0;
-  border: 1px solid #d1d5da;
-  border-radius: 3px;
+.component-footer .logo-icon {
+    float: left;
+}
+.component-footer .logo-icon:before {
+      font-size: 32px;
+      color: #a3aab1;
+}
+.component-footer .info {
+    float: right;
+}
+.component-footer .info .link {
+      color: #0366d6;
+}
+.component-footer .info p {
+      color: #959da5;
+}
+
+.user-repos-content {
   background-color: #fff;
 }
-.repos .title[data-v-a7abc3de] {
-    height: 40px;
-    padding-left: 15px;
-    line-height: 40px;
-    font-size: 14px;
-    color: #2f363d;
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .icon-repos, .icon-location, .user-index-content .user-info .location:before, .icon-fork {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
 }
-.repos .item[data-v-a7abc3de] {
-    padding: 14px;
-    border-top: 1px solid #d1d5da;
+.icon-github {
+  content: '\E607';
 }
-.repos .link[data-v-a7abc3de] {
-    color: #0366d6;
+.icon-dashboard {
+  content: '\E64B';
 }
-.repos .repos-icon[data-v-a7abc3de] {
-    display: inline-block;
+.icon-marketplace {
+  content: '\E632';
 }
-.repos .repos-icon[data-v-a7abc3de]:before {
-    margin-right: 4px;
-    color: #6a737d;
+.icon-explore {
+  content: '\E640';
 }
-.repos .repos-name[data-v-a7abc3de] {
-    display: inline-block;
-    max-width: 78%;
-    word-break: break-word;
+.icon-signout {
+  content: '\E717';
 }
-.repos .star-icon[data-v-a7abc3de] {
-    float: right;
-    color: #6a737d;
+.icon-star {
+  content: '\E733';
 }
-.repos .star-icon[data-v-a7abc3de]:after {
-    margin-left: 3px;
-    font-size: 14px;
+.icon-repos {
+  content: '\E707';
 }
-.repos-starred .title[data-v-a7abc3de]:before {
-  margin-right: 8px;
-  font-size: 14px;
-  color: #6a737d;
+.icon-location, .user-index-content .user-info .location:before {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.user-index-content .user-info {
+  padding: 15px;
+}
+.user-index-content .user-info .avatar-wrap {
+    float: left;
+    margin-right: 15px;
+}
+.user-index-content .user-info .avatar {
+    width: 110px;
+    height: 110px;
+    vertical-align: middle;
+}
+.user-index-content .user-info .detail-info {
+    float: left;
+}
+.user-index-content .user-info .name, .user-index-content .user-info .account, .user-index-content .user-info .location {
+    margin: 0;
+}
+.user-index-content .user-info .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+.user-index-content .user-info .account {
+    margin-top: 5px;
+    color: #586069;
+    font-size: 12px;
+}
+.user-index-content .user-info .location {
+    margin-top: 15px;
+}
+.user-index-content .user-info .location:before {
+      font-size: 12px;
+      display: inline-block;
+      color: #586069;
+}
+.user-index-content .user-repos {
+  padding: 0 15px 15px;
+  border-top: 1px solid #e1e4e8;
+  background-color: #fff;
+}
+.user-index-content .user-repos .title {
+    font-size: 16px;
+    font-weight: normal;
+}
+.user-index-content .user-repos .wrapper {
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
 }
