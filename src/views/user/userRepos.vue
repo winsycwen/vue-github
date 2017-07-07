@@ -1,17 +1,23 @@
 <template>
 	<div class="user-repos-content">
+		<!-- 仓库信息 -->
 		<div v-if="loading" class="loading"></div>
 		<UserReposList v-else :list="list"></UserReposList>
+
+		<!-- 分页 -->
+		<Pagination @goto="getReposByPages"></Pagination>
 	</div>
 </template>
 
 <script>
 import UserReposList from '../../components/userReposList.vue';
+import Pagination from '../../components/pagination.vue';
 
 export default {
 	props: ['userInfo'],
 	components: {
-		UserReposList
+		UserReposList,
+		Pagination
 	},
 	data() {
 		return {
@@ -34,14 +40,21 @@ export default {
 			_this.$http
 				.get(url, {
 					params: {
-						sort: 'updated'
+						sort: 'updated',
+						page: 1,
+						per_page: 2
 					}
 				})
 				.then(response => {
+					console.log(response.headers);
+					console.log(response.headers.map['Link'][0]);
 					_this.list = response.body;
 				}, response => {
 					alert(response.statusText);
 				});
+		},
+		getReposByPages() {
+			console.log("触发事件");
 		}
 	},
 	created() {
