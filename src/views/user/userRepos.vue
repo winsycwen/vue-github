@@ -5,7 +5,7 @@
 		<UserReposList v-else :list="list"></UserReposList>
 
 		<!-- 分页 -->
-		<Pagination @goto="getReposByPages"></Pagination>
+		<Pagination :paging="paging" @goto="getRepos"></Pagination>
 	</div>
 </template>
 
@@ -22,39 +22,55 @@ export default {
 	data() {
 		return {
 			loading: true,
-			list: []
+			list: [],
+			paging: []
 		};
 	},
 	watch: {
+		// 读取到列表数据，则隐藏loading图标
 		list() {
-			// 读取到列表数据，则隐藏loading图标
 			this.loading = false;
 		}
 	},
 	methods: {
-		getRepos() {
-			// 获取用户仓库信息
-			let _this = this,
-				url = `https://api.github.com/users/${_this.$route.params.user}/repos`;
+		// 获取用户仓库信息
+		getRepos(url) {
+			let _this = this;
+			var url = url || `https://api.github.com/users/${_this.$route.params.user}/repos?sort=updated&page=1&per_page=10`;
 
+			_this.loading = true;
+			_this.paging = [];
+			
 			_this.$http
-				.get(url, {
-					params: {
-						sort: 'updated',
-						page: 1,
-						per_page: 2
-					}
-				})
+				.get(url)
 				.then(response => {
-					console.log(response.headers);
-					console.log(response.headers.map['Link'][0]);
+					var headers = response.headers.map;
+
+					if(headers['Link']) {
+						// 分页信息
+						_this.paging = _this.getPaginationUrl(headers['Link'][0]);
+					}
+
+					// 列表信息
 					_this.list = response.body;
+
 				}, response => {
 					alert(response.statusText);
 				});
 		},
-		getReposByPages() {
-			console.log("触发事件");
+		// 根据响应请求的自定义Link头部内容，获取翻页信息
+		getPaginationUrl(info) {
+			let arr = [];
+			info.split(',').forEach(function(item, index, array) {
+				var result = item.match(/<(.*?)>;[ ]+rel="(.*?)"/);
+				arr[result[2]] = result[1];
+			});
+			return arr;
+		},
+		getReposByPages(url) {
+			if(value) {
+				getRepos(value);
+			}
 		}
 	},
 	created() {

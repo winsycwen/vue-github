@@ -1,15 +1,21 @@
 <template>
-	<div class="component-pagination">
-		<a class="prev" href="javascript:void(0);" @click="go">Previous</a>
-		<a class="next" href="javascript:void(0);" @click="go">Next</a>
+	<div v-model="paging.length" class="component-pagination">
+		<!-- 上一页 -->
+		<a class="prev" :class="{disabled: !paging['prev']}" :data-link="paging['prev']" href="javascript:void(0);" @click="go">Previous</a>
+
+		<!-- 下一页 -->
+		<a class="next" :class="{disabled: !paging['next']}" :data-link="paging['next']" href="javascript:void(0);" @click="go">Next</a>
+
 	</div>
 </template>
 
 <script>
 export default {
+	props: ['paging'],
 	methods: {
-		go() {
-			this.$emit('goto');
+		go(event) {
+			// 传递自定义属性data-link的值
+			this.$emit('goto', event.target.dataset.link);
 		}
 	}
 };
