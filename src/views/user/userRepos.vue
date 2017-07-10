@@ -66,11 +66,6 @@ export default {
 				arr[result[2]] = result[1];
 			});
 			return arr;
-		},
-		getReposByPages(url) {
-			if(value) {
-				getRepos(value);
-			}
 		}
 	},
 	created() {

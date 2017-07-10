@@ -4,7 +4,7 @@
 			<div class="repos-title">
 				<span :class="[item.fork ? 'fork-icon' : 'repos-icon']"></span>
 				
-				<router-link class="link" :to="item.full_name | joinDelimit"></router-link>
+				<router-link class="link" :to="item.full_name | formatUrl"></router-link>
 
 				<a href="#" class="link">
 					<span class="repos-name">{{item.full_name}}</span>
@@ -16,6 +16,7 @@
 			</div>
 		</li>
 	</ul>
+	<p v-else class="component-user-repos-list-empty">No message to show.</p>
 </template>
 
 <script>
@@ -23,7 +24,7 @@ export default {
 	props: ['list'],
 	filters: {
 		// 为链接添加前缀分割符'/'
-		joinDelimit(value) {
+		formatUrl(value) {
 			if(!value) {
 				return value;
 			}
@@ -39,7 +40,7 @@ export default {
 .component-user-repos-list {
 	.item {
 		padding: 15px;
-		&+.item {
+		& + .item {
 			border-top: 1px solid $border-color;
 		}
 	}
@@ -95,5 +96,11 @@ export default {
 			@extend .icon-star;
 		}
 	}
+}
+
+.component-user-repos-list-empty {
+	padding: 45px;
+	text-align: center;
+	color: #586069;
 }
 </style>

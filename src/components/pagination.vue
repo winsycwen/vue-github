@@ -1,5 +1,5 @@
 <template>
-	<div v-model="paging.length" class="component-pagination">
+	<div v-if="paging['prev'] || paging['next']" class="component-pagination">
 		<!-- 上一页 -->
 		<a class="prev" :class="{disabled: !paging['prev']}" :data-link="paging['prev']" href="javascript:void(0);" @click="go">Previous</a>
 
@@ -14,8 +14,10 @@ export default {
 	props: ['paging'],
 	methods: {
 		go(event) {
-			// 传递自定义属性data-link的值
-			this.$emit('goto', event.target.dataset.link);
+			if(event.target.dataset.link) {
+				// 传递自定义属性data-link的值
+				this.$emit('goto', event.target.dataset.link);
+			}
 		}
 	}
 };

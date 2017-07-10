@@ -8,7 +8,7 @@
 			</router-link>
 		</li>
 	</ul>
-	<div v-else class="component-repos-list-empty">No message to show.</div>
+	<p v-else class="component-repos-list-empty">No message to show.</p>
 </template>
 
 <script>

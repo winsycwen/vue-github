@@ -3,7 +3,7 @@
 		<!-- 用户信息 -->
 		<section class="user-info clearfix">
 			<div class="avatar-wrap">
-				<img class="avatar" :src="userInfo.avatar_url">
+				<img class="avatar" :src="userInfo.avatar_url | concatSize">
 			</div>
 		
 			<div class="detail-info">
@@ -58,6 +58,12 @@ export default {
 				});
 		}
 	},
+	filters: {
+		concatSize(val) {
+			if(!val) return;
+			return `${val}&s=220`;
+		}
+	},
 	created() {
 		this.getRepos();
 	}
@@ -100,8 +106,8 @@ export default {
 		.location {
 			margin-top: 15px;
 			&:before {
-				font-size: 12px;
 				display: inline-block;
+				font-size: 12px;
 				color: #586069;
 				@extend .icon-location;
 			}
