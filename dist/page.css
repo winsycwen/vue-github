@@ -1,4 +1,288 @@
 
+.component-pagination {
+  display: flex;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+}
+.component-pagination .prev,
+  .component-pagination .next {
+    flex: 1;
+    color: #444d56;
+    text-decoration: none;
+    text-align: center;
+}
+.component-pagination .next {
+    border-left: 1px solid #d1d5da;
+    float: right;
+}
+.component-pagination .disabled {
+    color: #c6cbd1;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .icon-repos, .icon-location, .component-user-followers-list .location:before, .icon-fork {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star {
+  content: '\E733';
+}
+.icon-repos {
+  content: '\E707';
+}
+.icon-location, .component-user-followers-list .location:before {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.component-user-followers-list {
+  background-color: #fff;
+}
+.component-user-followers-list .item {
+    padding: 15px;
+}
+.component-user-followers-list .item + .item {
+      border-top: 1px solid #d1d5da;
+}
+.component-user-followers-list .avatar-wrap {
+    float: left;
+    width: 32px;
+}
+.component-user-followers-list .avatar {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+.component-user-followers-list .detail-info {
+    margin-left: 47px;
+}
+.component-user-followers-list .user {
+    display: inline-block;
+    font-size: 0;
+}
+.component-user-followers-list .user .name {
+      margin-right: 8px;
+      font-size: 14px;
+      color: #0366d6;
+}
+.component-user-followers-list .user .account {
+      font-size: 12px;
+      color: #444d56;
+}
+.component-user-followers-list .description {
+    display: block;
+    margin: 8px 0;
+    font-size: 12px;
+    color: #6a737d;
+}
+.component-user-followers-list .location {
+    display: block;
+    font-size: 12px;
+    color: #6a737d;
+}
+.component-user-followers-list .location:before {
+      display: inline-block;
+      margin-right: 4px;
+      font-size: 12px;
+      color: #586069;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-user-repos-list .star-icon:before, .icon-repos, .component-user-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-user-repos-list .fork-icon:before {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .component-user-repos-list .star-icon:before {
+  content: '\E733';
+}
+.icon-repos, .component-user-repos-list .repos-icon:before {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork, .component-user-repos-list .fork-icon:before {
+  content: '\E634';
+}
+.component-user-repos-list .item {
+  padding: 15px;
+}
+.component-user-repos-list .item + .item {
+    border-top: 1px solid #d1d5da;
+}
+.component-user-repos-list .repos-title {
+  font-size: 0;
+}
+.component-user-repos-list .repos-icon,
+.component-user-repos-list .fork-icon {
+  display: inline-block;
+  margin-right: 4px;
+}
+.component-user-repos-list .repos-icon:before,
+  .component-user-repos-list .fork-icon:before {
+    color: #6a737d;
+}
+.component-user-repos-list .link {
+  color: #0366d6;
+}
+.component-user-repos-list .repos-name {
+  font-size: 14px;
+}
+.component-user-repos-list .about {
+  margin: 5px 0 5px 20px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #6a737d;
+  word-break: break-all;
+}
+.component-user-repos-list .info {
+  margin: 10px 0 0 20px;
+  font-size: 0;
+}
+.component-user-repos-list .star-icon {
+  display: inline-block;
+  color: #6a737d;
+  font-size: 12px;
+}
+.component-user-repos-list .star-icon:before {
+    margin-right: 4px;
+    font-size: 14px;
+}
+.component-user-repos-list-empty {
+  padding: 45px;
+  text-align: center;
+  color: #586069;
+}
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-repos-list .star-icon:after, .icon-repos, .component-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-repos-list .fork-icon:before {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .component-repos-list .star-icon:after {
+  content: '\E733';
+}
+.icon-repos, .component-repos-list .repos-icon:before {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork, .component-repos-list .fork-icon:before {
+  content: '\E634';
+}
+.component-repos-list .item {
+  padding: 14px;
+}
+.component-repos-list .item + .item {
+    border-top: 1px solid #d1d5da;
+}
+.component-repos-list .link {
+  color: #0366d6;
+}
+.component-repos-list .repos-icon,
+.component-repos-list .fork-icon {
+  display: inline-block;
+}
+.component-repos-list .repos-icon:before,
+  .component-repos-list .fork-icon:before {
+    margin-right: 4px;
+    color: #6a737d;
+}
+.component-repos-list .repos-name {
+  display: inline-block;
+  max-width: 78%;
+  word-break: break-word;
+}
+.component-repos-list .star-icon {
+  float: right;
+  color: #6a737d;
+}
+.component-repos-list .star-icon:after {
+    margin-left: 3px;
+    font-size: 14px;
+}
+.component-repos-list-empty {
+  padding: 45px;
+  text-align: center;
+  color: #586069;
+}
+
 @charset "UTF-8";
 /**
  *	字体图标
@@ -138,251 +422,6 @@
 }
 .component-nav-bar .sub-nav .router-link-exact-active {
       color: #fff;
-}
-
-@charset "UTF-8";
-/**
- *	字体图标
- *	author: winsycwen
- *	date:	2017-07-02 16:59:15
- **/
-.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-user-repos-list .star-icon:before, .icon-repos, .component-user-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-user-repos-list .fork-icon:before {
-  font-family: 'iconfont' !important;
-  font-size: 16px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-github {
-  content: '\E607';
-}
-.icon-dashboard {
-  content: '\E64B';
-}
-.icon-marketplace {
-  content: '\E632';
-}
-.icon-explore {
-  content: '\E640';
-}
-.icon-signout {
-  content: '\E717';
-}
-.icon-star, .component-user-repos-list .star-icon:before {
-  content: '\E733';
-}
-.icon-repos, .component-user-repos-list .repos-icon:before {
-  content: '\E707';
-}
-.icon-location {
-  content: '\E665';
-}
-.icon-fork, .component-user-repos-list .fork-icon:before {
-  content: '\E634';
-}
-.component-user-repos-list .item {
-  padding: 15px;
-}
-.component-user-repos-list .item + .item {
-    border-top: 1px solid #d1d5da;
-}
-.component-user-repos-list .repos-title {
-  font-size: 0;
-}
-.component-user-repos-list .repos-icon,
-.component-user-repos-list .fork-icon {
-  display: inline-block;
-  margin-right: 4px;
-}
-.component-user-repos-list .repos-icon:before,
-  .component-user-repos-list .fork-icon:before {
-    color: #6a737d;
-}
-.component-user-repos-list .link {
-  color: #0366d6;
-}
-.component-user-repos-list .repos-name {
-  font-size: 14px;
-}
-.component-user-repos-list .about {
-  margin: 5px 0 5px 20px;
-  line-height: 16px;
-  font-size: 12px;
-  color: #6a737d;
-  word-break: break-all;
-}
-.component-user-repos-list .info {
-  margin: 10px 0 0 20px;
-  font-size: 0;
-}
-.component-user-repos-list .star-icon {
-  display: inline-block;
-  color: #6a737d;
-  font-size: 12px;
-}
-.component-user-repos-list .star-icon:before {
-    margin-right: 4px;
-    font-size: 14px;
-}
-
-@charset "UTF-8";
-/**
- *	字体图标
- *	author: winsycwen
- *	date:	2017-07-02 16:59:15
- **/
-.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .component-repos-list .star-icon:after, .icon-repos, .component-repos-list .repos-icon:before, .icon-location, .icon-fork, .component-repos-list .fork-icon:before {
-  font-family: 'iconfont' !important;
-  font-size: 16px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-github {
-  content: '\E607';
-}
-.icon-dashboard {
-  content: '\E64B';
-}
-.icon-marketplace {
-  content: '\E632';
-}
-.icon-explore {
-  content: '\E640';
-}
-.icon-signout {
-  content: '\E717';
-}
-.icon-star, .component-repos-list .star-icon:after {
-  content: '\E733';
-}
-.icon-repos, .component-repos-list .repos-icon:before {
-  content: '\E707';
-}
-.icon-location {
-  content: '\E665';
-}
-.icon-fork, .component-repos-list .fork-icon:before {
-  content: '\E634';
-}
-.component-repos-list .item {
-  padding: 14px;
-}
-.component-repos-list .item + .item {
-    border-top: 1px solid #d1d5da;
-}
-.component-repos-list .link {
-  color: #0366d6;
-}
-.component-repos-list .repos-icon,
-.component-repos-list .fork-icon {
-  display: inline-block;
-}
-.component-repos-list .repos-icon:before,
-  .component-repos-list .fork-icon:before {
-    margin-right: 4px;
-    color: #6a737d;
-}
-.component-repos-list .repos-name {
-  display: inline-block;
-  max-width: 78%;
-  word-break: break-word;
-}
-.component-repos-list .star-icon {
-  float: right;
-  color: #6a737d;
-}
-.component-repos-list .star-icon:after {
-    margin-left: 3px;
-    font-size: 14px;
-}
-.component-repos-list-empty {
-  padding: 45px;
-  text-align: center;
-  color: #586069;
-}
-
-@charset "UTF-8";
-/**
- *	字体图标
- *	author: winsycwen
- *	date:	2017-07-02 16:59:15
- **/
-.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .dashboard .repos-starred .title:before, .icon-repos, .icon-location, .icon-fork {
-  font-family: 'iconfont' !important;
-  font-size: 16px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-github {
-  content: '\E607';
-}
-.icon-dashboard {
-  content: '\E64B';
-}
-.icon-marketplace {
-  content: '\E632';
-}
-.icon-explore {
-  content: '\E640';
-}
-.icon-signout {
-  content: '\E717';
-}
-.icon-star, .dashboard .repos-starred .title:before {
-  content: '\E733';
-}
-.icon-repos {
-  content: '\E707';
-}
-.icon-location {
-  content: '\E665';
-}
-.icon-fork {
-  content: '\E634';
-}
-.dashboard .search-bar {
-  margin: 15px 15px 0;
-}
-.dashboard .search-bar input {
-    width: 100%;
-    height: 34px;
-    padding: 6px 8px;
-    box-sizing: border-box;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-    outline: none;
-}
-.dashboard .search-bar input:focus {
-      border-color: #2188ff;
-      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
-}
-.dashboard .repos {
-  margin: 15px 15px 0;
-  border: 1px solid #d1d5da;
-  border-radius: 3px;
-  background-color: #fff;
-}
-.dashboard .repos .title {
-    height: 40px;
-    margin: 0;
-    padding-left: 15px;
-    border-bottom: 1px solid #d1d5da;
-    line-height: 40px;
-    font-size: 14px;
-    color: #2f363d;
-}
-.dashboard .repos-starred {
-  margin-bottom: 15px;
-}
-.dashboard .repos-starred .title:before {
-    margin-right: 8px;
-    font-size: 14px;
-    color: #6a737d;
 }
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -818,10 +857,87 @@ a {
 
 @font-face {
   font-family: 'iconfont';
-  src: url(/vue-github/dist/261db67f86812ca87e500700a0a3aa3b.ttf) format("truetype"), url(/vue-github/dist/547c4943c982fd183712f304d337e0c0.svg) format("svg"); }
+  src: url(/vue-github/dist/261db67f86812ca87e500700a0a3aa3b.ttf) format("truetype"), url(/vue-github/dist/cec1153c8d58f4401d0cda52e81a0811.svg) format("svg"); }
 
-.user-stars-content {
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .dashboard .repos-starred .title:before, .icon-repos, .icon-location, .icon-fork {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .dashboard .repos-starred .title:before {
+  content: '\E733';
+}
+.icon-repos {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.dashboard .search-bar {
+  margin: 15px 15px 0;
+}
+.dashboard .search-bar input {
+    width: 100%;
+    height: 34px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    outline: none;
+}
+.dashboard .search-bar input:focus {
+      border-color: #2188ff;
+      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
+}
+.dashboard .repos {
+  margin: 15px 15px 0;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
   background-color: #fff;
+}
+.dashboard .repos .title {
+    height: 40px;
+    margin: 0;
+    padding-left: 15px;
+    border-bottom: 1px solid #d1d5da;
+    line-height: 40px;
+    font-size: 14px;
+    color: #2f363d;
+}
+.dashboard .repos-starred {
+  margin-bottom: 15px;
+}
+.dashboard .repos-starred .title:before {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #6a737d;
 }
 
 @charset "UTF-8";
@@ -884,6 +1000,10 @@ a {
 }
 .component-footer .info p {
       color: #959da5;
+}
+
+.user-stars-content {
+  background-color: #fff;
 }
 
 .user-repos-content {
@@ -962,8 +1082,8 @@ a {
     margin-top: 15px;
 }
 .user-index-content .user-info .location:before {
-      font-size: 12px;
       display: inline-block;
+      font-size: 12px;
       color: #586069;
 }
 .user-index-content .user-repos {
