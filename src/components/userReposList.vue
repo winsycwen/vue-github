@@ -2,13 +2,11 @@
 	<ul v-if="list.length" class="component-user-repos-list">
 		<li class="item" v-for="item in list">
 			<div class="repos-title">
-				<span :class="[item.fork ? 'fork-icon' : 'repos-icon']"></span>
-				
-				<router-link class="link" :to="item.full_name | formatUrl"></router-link>
+				<router-link class="link clearfix" :to="item.full_name | formatUrl">
+					<span :class="[item.fork ? 'fork-icon' : 'repos-icon']"></span>
 
-				<a href="#" class="link">
 					<span class="repos-name">{{item.full_name}}</span>
-				</a>
+				</router-link>
 			</div>
 			<p class="about">{{item.description}}</p>
 			<div class="info">
@@ -46,13 +44,13 @@ export default {
 	}
 
 	// 仓库标题
-	.repos-title {
+	.link {
 		font-size: 0;
 	}
 	.repos-icon,
 	.fork-icon {
+		float: left;
 		display: inline-block;
-		margin-right: 4px;
 		&:before {
 			color: $font-gray;
 		}
@@ -69,7 +67,10 @@ export default {
 		color: $font-blue;
 	}
 	.repos-name {
+		display: block;
+		margin-left: 20px;
 		font-size: 14px;
+		word-break: break-all;
 	}
 
 	// 仓库内容概要
