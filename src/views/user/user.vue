@@ -18,18 +18,12 @@ export default {
 			userInfo: {}
 		};
 	},
-	beforeRouteEnter(to, from, next) {
-		if(!to.params) {
-			// 错误提示
-			alert('获取数据失败');
+	methods: {
+		dealRoute(to, from, next) {
+			let _this = this,
+				url = `https://api.github.com/users/${to.params.user}`;
 
-			next('/');
-		}
-
-		next(vm => {
-			let url = `https://api.github.com/users/${to.params.user}`;
-
-			vm.$http.get(url)
+			_this.$http.get(url)
 				.then(response => {
 					let data = response.body;
 					let {
@@ -37,13 +31,13 @@ export default {
 						followers, 
 						following
 					} = data;
-					let subPath = `/user/${data.name}`;
+					let subPath = `/user/${data.login}`;
 
 					// 设置用户页面信息
-					vm.userInfo = data;
+					_this.userInfo = data;
 
 					// 设置头部子菜单链接
-					vm.navList = [{
+					_this.navList = [{
 						link: `${subPath}`,
 						title: 'Overview',
 						num: ''
@@ -71,8 +65,31 @@ export default {
 
 					next(false);
 				});
+		}
+	},
+	beforeRouteEnter(to, from, next) {
+		if(!to.params) {
+			// 错误提示
+			alert('获取数据失败');
+
+			next('/');
+		}
+
+		next(vm => {
+			vm.dealRoute(to, from, next);
 		});
 
+	},
+	beforeRouteUpdate(to, from, next) {
+		if(!to.params) {
+			// 错误提示
+			alert('获取数据失败');
+
+			next('/');
+		}
+
+		this.dealRoute(to, from, next);
+		next();
 	}
 };
 </script>

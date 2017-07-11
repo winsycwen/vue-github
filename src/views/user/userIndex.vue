@@ -7,9 +7,9 @@
 			</div>
 		
 			<div class="detail-info">
-				<p class="name">{{userInfo.name}}</p>
-				<p class="account">{{userInfo.login}}</p>
-				<p class="location">{{userInfo.location}}</p>
+				<p v-if="userInfo.name" class="name">{{userInfo.name}}</p>
+				<p v-if="userInfo.login" class="account">{{userInfo.login}}</p>
+				<p v-if="userInfo.location" class="location">{{userInfo.location}}</p>
 			</div>
 		</section>
 
