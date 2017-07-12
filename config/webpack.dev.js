@@ -42,7 +42,12 @@ module.exports = {
 		}, {
 			// 处理字体图标
 			test: /\.(ttf|svg)$/,
-			use: 'file-loader'
+			use: [{
+				loader: 'file-loader',
+				options: {
+					name: "[name].[ext]"
+				}
+			}]
 		}]
 	},
 	devServer: {
