@@ -1,8 +1,14 @@
 <template>
 	<header class="component-nav-bar">
 		<div class="bar">
-			<div class="logo">
+
+			<div v-if="!navTitle" class="logo">
 				<router-link class="logo-link" to="/"></router-link>
+			</div>
+			<div v-else class="repos-title">
+				<router-link class="link" :to="navTitle.userLink">{{navTitle.user}}</router-link>
+				<span class="separator">/</span>
+				<router-link class="link" :to="navTitle.reposLink">{{navTitle.reposName}}</router-link>
 			</div>
 
 			<div class="menu-logo" @click="hide = !hide">
@@ -29,7 +35,7 @@
 
 <script lang="js">
 export default {
-	props: ['navList'],
+	props: ['navTitle', 'navList'],
 	data: () => {
 		return {
 			hide: true,
@@ -61,8 +67,9 @@ export default {
 		height: 50px;
 		line-height: 50px;
 	}
-	// 页面logo
-	.logo {
+	// 页面顶部标题
+	.logo,
+	.repos-title {
 		position: absolute;
 		left: 50%;
 		transform: translate(-50%, 0);
@@ -78,14 +85,26 @@ export default {
 			@extend .icon-github;
 		}
 	}
+	.repos-title {
+		.link {
+			color: #fff;
+			&:first-child:before {
+				margin-right: 4px;
+				color: rgba(255, 255, 255, .75);
+				@extend .icon-repos;
+			}
+		}
+		.separator {
+			color: rgba(255, 255, 255, .75);
+		}
+	}
 
 	// 菜单按钮logo
 	.menu-logo {
-		position: relative;
-		display: inline-block;
+		position: absolute;
+		top: 15px;
 		width: 44px;
 		height: 14px;
-		vertical-align: middle;
 		&:before, &:after {
 			content: '';
 			position: absolute;

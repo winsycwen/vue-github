@@ -1,10 +1,10 @@
 <template>
 	<ul v-if="list.length" class="component-repos-list">
 		<li class="item" v-for="item in list">
-			<router-link class="link clearfix" :to="item.full_name | joinDelimit">
+			<router-link class="link clearfix" :to="item.full_name | formatUrl">
 				<span :class="[item.fork ? 'fork-icon' : 'repos-icon']"></span>
 				<span class="repos-name">{{item.full_name}}</span>
-				<span class="star-icon">{{item.stargazers_count}}</span>
+				<span class="star-icon">{{item.stargazers_count | formatNum}}</span>
 			</router-link>
 		</li>
 	</ul>
@@ -15,12 +15,21 @@
 export default {
 	props: ['list'],
 	filters: {
-		// 为链接添加前缀分割符'/'
-		joinDelimit(value) {
+		// 格式化跳转链接
+		formatUrl(value) {
+			if(!value || value.indexOf('/') == -1) {
+				return 'javascript:void(0);';
+			}
+			var arr = value.split('/');
+			return `/userrepos/${arr[0]}/repos/${arr[1]}`;
+		},
+		// 格式化数字为以k为单位的字符串
+		formatNum(value) {
 			if(!value) {
 				return value;
 			}
-			return '/' + value;
+
+			return parseInt(value) >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
 		}
 	}
 };
