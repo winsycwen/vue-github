@@ -52,8 +52,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 9000,
-		hot: true,
-		compress: true
+		hot: true
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
