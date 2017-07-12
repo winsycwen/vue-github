@@ -1,3 +1,7 @@
+if(!process.env.NODE_ENV) {
+	process.env.NODE_ENV = 'development';
+}
+
 var path = require('path');
 var webpack = require('webpack');
 var extractWebpackPlugin = require('extract-text-webpack-plugin');
@@ -9,7 +13,7 @@ module.exports = {
 	entry: './src/main.js',
 	output: {
 		path: path.resolve(__dirname, '../dist'),	// 输出目录绝对路径
-		publicPath: '/vue-github/dist/',
+		publicPath: '/dist/',
 		filename: 'bundle.js'
 	},
 	module: {
@@ -21,7 +25,12 @@ module.exports = {
 				options: {
 					loaders: {
 						scss: extractWebpackPlugin.extract({
-							use: 'css-loader!sass-loader',
+							use: [{
+								loader: 'css-loader',
+								options: {
+									minimize: process.env.NODE_ENV == "production"
+								}
+							}, 'sass-loader'],
 							fallback: 'vue-style-loader'
 						}),
 						js: 'babel-loader'
@@ -32,7 +41,12 @@ module.exports = {
 			// 处理scss文件
 			test: /\.scss$/,
 			use: extractWebpackPlugin.extract({
-				use: 'css-loader!sass-loader',
+				use: [{
+					loader: 'css-loader',
+					options: {
+						minimize: process.env.NODE_ENV == "production"
+					}
+				}, 'sass-loader'],
 				fallback: 'vue-style-loader'
 			})
 		}, {
@@ -45,14 +59,16 @@ module.exports = {
 			use: [{
 				loader: 'file-loader',
 				options: {
-					name: "[name].[ext]"
+					name: "[name].[ext]",
+					publicPath: './'
 				}
 			}]
 		}]
 	},
 	devServer: {
 		port: 9000,
-		hot: true
+		hot: true,
+		compress: true
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
