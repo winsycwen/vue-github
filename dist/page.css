@@ -364,87 +364,6 @@
   text-align: center;
   color: #586069;
 }
-
-@charset "UTF-8";
-/**
- *	字体图标
- *	author: winsycwen
- *	date:	2017-07-02 16:59:15
- **/
-.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .dashboard .repos-starred .title:before, .icon-repos, .icon-location, .icon-fork {
-  font-family: 'iconfont' !important;
-  font-size: 16px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-github {
-  content: '\E607';
-}
-.icon-dashboard {
-  content: '\E64B';
-}
-.icon-marketplace {
-  content: '\E632';
-}
-.icon-explore {
-  content: '\E640';
-}
-.icon-signout {
-  content: '\E717';
-}
-.icon-star, .dashboard .repos-starred .title:before {
-  content: '\E733';
-}
-.icon-repos {
-  content: '\E707';
-}
-.icon-location {
-  content: '\E665';
-}
-.icon-fork {
-  content: '\E634';
-}
-.dashboard .search-bar {
-  margin: 15px 15px 0;
-}
-.dashboard .search-bar input {
-    width: 100%;
-    height: 34px;
-    padding: 6px 8px;
-    box-sizing: border-box;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
-    outline: none;
-}
-.dashboard .search-bar input:focus {
-      border-color: #2188ff;
-      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
-}
-.dashboard .repos {
-  margin: 15px 15px 0;
-  border: 1px solid #d1d5da;
-  border-radius: 3px;
-  background-color: #fff;
-}
-.dashboard .repos .title {
-    height: 40px;
-    margin: 0;
-    padding-left: 15px;
-    border-bottom: 1px solid #d1d5da;
-    line-height: 40px;
-    font-size: 14px;
-    color: #2f363d;
-}
-.dashboard .repos-starred {
-  margin-bottom: 15px;
-}
-.dashboard .repos-starred .title:before {
-    margin-right: 8px;
-    font-size: 14px;
-    color: #6a737d;
-}
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -879,7 +798,88 @@ a {
 
 @font-face {
   font-family: 'iconfont';
-  src: url(/vue-github/dist/261db67f86812ca87e500700a0a3aa3b.ttf) format("truetype"), url(/vue-github/dist/cec1153c8d58f4401d0cda52e81a0811.svg) format("svg"); }
+  src: url(/vue-github/dist/iconfont.ttf) format("truetype"), url(/vue-github/dist/iconfont.svg) format("svg"); }
+
+@charset "UTF-8";
+/**
+ *	字体图标
+ *	author: winsycwen
+ *	date:	2017-07-02 16:59:15
+ **/
+.iconfont, .icon-github, .icon-dashboard, .icon-marketplace, .icon-explore, .icon-signout, .icon-star, .dashboard .repos-starred .title:before, .icon-repos, .icon-location, .icon-fork {
+  font-family: 'iconfont' !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github {
+  content: '\E607';
+}
+.icon-dashboard {
+  content: '\E64B';
+}
+.icon-marketplace {
+  content: '\E632';
+}
+.icon-explore {
+  content: '\E640';
+}
+.icon-signout {
+  content: '\E717';
+}
+.icon-star, .dashboard .repos-starred .title:before {
+  content: '\E733';
+}
+.icon-repos {
+  content: '\E707';
+}
+.icon-location {
+  content: '\E665';
+}
+.icon-fork {
+  content: '\E634';
+}
+.dashboard .search-bar {
+  margin: 15px 15px 0;
+}
+.dashboard .search-bar input {
+    width: 100%;
+    height: 34px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    outline: none;
+}
+.dashboard .search-bar input:focus {
+      border-color: #2188ff;
+      box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075), 0 0 0 0.2em rgba(3, 102, 214, 0.3);
+}
+.dashboard .repos {
+  margin: 15px 15px 0;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.dashboard .repos .title {
+    height: 40px;
+    margin: 0;
+    padding-left: 15px;
+    border-bottom: 1px solid #d1d5da;
+    line-height: 40px;
+    font-size: 14px;
+    color: #2f363d;
+}
+.dashboard .repos-starred {
+  margin-bottom: 15px;
+}
+.dashboard .repos-starred .title:before {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #6a737d;
+}
 
 @charset "UTF-8";
 /**
