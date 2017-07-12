@@ -19,7 +19,8 @@
 		<ul v-if="navList" class="sub-nav">
 			<li class="nav" v-for="item in navList">
 				<router-link class="nav-link" :to="item.link">
-					{{item.title}}<span class="num" v-if="item.num">{{item.num}}</span>
+					<span class="title">{{item.title}}</span>
+					<span class="num" v-if="item.num">{{item.num | formatNum}}</span>
 				</router-link>
 			</li>
 		</ul>
@@ -40,6 +41,12 @@ export default {
 				title: 'Profile'
 			}]
 		};
+	},
+	filters: {
+		formatNum(val) {
+			var val = parseInt(val);
+			return val >= 1000 ? (val / 1000).toFixed(1) + 'k' : val;
+		}
 	}
 };
 </script>
@@ -138,15 +145,17 @@ export default {
 		.nav-link {
 			color: rgba(255, 255, 255, .75);
 		}
+		.title {
+			display: inline-block;
+		}
 		.num {
 			display: inline-block;
-			width: 20px;
+			min-width: 20px;
 			height: 20px;
 			border-radius: 20px;
 			background-color: rgba(255, 255, 255, .15);
     		font-size: 12px;
     		line-height: 20px;
-    		text-align: center;
 		}
 		.router-link-exact-active {
 			color: #fff;
