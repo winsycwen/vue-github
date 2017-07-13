@@ -29,7 +29,7 @@ export default {
 	},
 	watch: {
 		list() {
-			// 列表数据更改，则鹰舱loading图标
+			// 列表数据更改，则隐藏loading图标
 			this.loading = false;
 		}
 	},

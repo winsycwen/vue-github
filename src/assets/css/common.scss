@@ -33,8 +33,8 @@ a {
 .loading {
 	position: relative;
 	height: 50px;
+	line-height: 50px;
 	text-align: center;
-	
 	&:before {
 		display: inline-block;
 		content: '';
@@ -44,6 +44,7 @@ a {
 		border: 3px solid transparent;
 		border-top-color: rgba(3, 102, 214, 0.6);
 		border-right-color: rgba(3, 102, 214, 0.6);
+		vertical-align: middle;
 		animation: loading 1s infinite linear;
 	}
 }

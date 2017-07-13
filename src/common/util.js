@@ -6,15 +6,15 @@ function formatTime(time) {
 
 	if(diff >= 1 && diff < 60) {
 		// 1秒至60秒之间
-		str = `${diff} seconds ago`;
+		str = `${diff} seconds`;
 	} else if(diff >= 60 && diff < 3600) {
 		// 1分钟至60分钟之间
-		str = `${parseInt(diff/60)} miniutes ago`;
+		str = `${parseInt(diff/60)} miniutes`;
 	} else if(diff >= 3600 && diff < 86400) {
 		// 1小时至24小时之间
-		str = `${parseInt(diff/3600)} hours ago`;
+		str = `${parseInt(diff/3600)} hours`;
 	} else {
-		str = `${parseInt(diff/3600)} days ago`;
+		str = `${parseInt(diff/3600)} days`;
 	}
 	return str;
 }
