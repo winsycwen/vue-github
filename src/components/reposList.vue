@@ -67,8 +67,8 @@ export default {
 	}
 	.repos-name {
 		display: inline-block;
-		max-width: 78%;
-		word-break: break-word;
+		max-width: 75%;
+		word-break: break-all;
 	}
 	.star-icon {
 		float: right;

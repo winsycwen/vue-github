@@ -86,6 +86,8 @@ export default {
 		}
 	}
 	.repos-title {
+		width: 100%;
+		text-align: -webkit-center;
 		.link {
 			color: #fff;
 			&:first-child:before {
