@@ -12,6 +12,7 @@
 <script>
 import UserReposList from '../../components/userReposList.vue';
 import Pagination from '../../components/pagination.vue';
+import {getPaginationUrl} from 'util';
 
 export default {
 	props: ['userInfo'],
@@ -48,7 +49,7 @@ export default {
 
 					if(headers['Link']) {
 						// 分页信息
-						_this.paging = _this.getPaginationUrl(headers['Link'][0]);
+						_this.paging = getPaginationUrl(headers['Link'][0]);
 					}
 
 					// 列表信息
@@ -57,15 +58,6 @@ export default {
 				}, response => {
 					alert(response.statusText);
 				});
-		},
-		// 根据响应请求的自定义Link头部内容，获取翻页信息
-		getPaginationUrl(info) {
-			let arr = [];
-			info.split(',').forEach(function(item, index, array) {
-				var result = item.match(/<(.*?)>;[ ]+rel="(.*?)"/);
-				arr[result[2]] = result[1];
-			});
-			return arr;
 		}
 	},
 	created() {

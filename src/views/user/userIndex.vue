@@ -15,8 +15,9 @@
 
 		<!-- 用户仓库信息 -->
 		<section class="user-repos">
-			<h2 class="title">Popular repositories</h2>
-			
+			<h2 v-if="userInfo.type == type" class="title">Popular repositories</h2>
+			<h2 v-else class="title">Pinned repositories</h2>
+
 			<div class="wrapper">
 				<div v-if="loading" class="loading"></div>
 				<ReposList v-else :list="list"></ReposList>
@@ -27,6 +28,8 @@
 
 <script>
 import ReposList from '../../components/reposList.vue';
+import { USERTYPE } from 'const';
+
 export default {
 	props: ['userInfo'],
 	components: {
@@ -35,7 +38,8 @@ export default {
 	data() {
 		return {
 			loading: true,
-			list: []
+			list: [],
+			type: USERTYPE
 		};
 	},
 	watch: {
@@ -46,16 +50,20 @@ export default {
 	},
 	methods: {
 		getRepos() {
-			// 获取用户仓库信息
-			let _this = this,
-				url = `https://api.github.com/users/${_this.$route.params.user}/repos`;
+			let _this = this;
+			_this.$watch('userInfo', function(newVal, oldVal) {
+				// 获取用户仓库信息
+				let orgUrl = `https://api.github.com/orgs/${_this.$route.params.user}/repos?page=1&per_page=6`,
+					userUrl = `https://api.github.com/users/${_this.$route.params.user}/repos?page=1&per_page=6`,
+					url = _this.userInfo.type == USERTYPE ? userUrl : orgUrl;
 
-			_this.$http.get(url)
-				.then(response => {
-					_this.list = response.body.slice(0, 6);
-				}, response => {
-					alert(response.statusText);
-				});
+				_this.$http.get(url)
+					.then(response => {
+						_this.list = response.body;
+					}, response => {
+						alert(response.statusText);
+					});
+			})
 		}
 	},
 	filters: {

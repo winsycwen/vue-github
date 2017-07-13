@@ -72,4 +72,12 @@ export default {
 		}
 	}
 }
+
+.component-user-followers-list-empty {
+	margin: 0;
+	padding: 45px;
+	text-align: center;
+	color: #586069;
+    background-color: #fff;
+}
 </style>

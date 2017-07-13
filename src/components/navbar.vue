@@ -34,6 +34,8 @@
 </template>
 
 <script lang="js">
+import { formatNumber } from 'util';
+
 export default {
 	props: ['navTitle', 'navList'],
 	data: () => {
@@ -50,8 +52,7 @@ export default {
 	},
 	filters: {
 		formatNum(val) {
-			var val = parseInt(val);
-			return val >= 1000 ? (val / 1000).toFixed(1) + 'k' : val;
+			return formatNumber(val);
 		}
 	}
 };

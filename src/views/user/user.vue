@@ -8,6 +8,8 @@
 
 <script>
 import Navbar from '../../components/navbar.vue';
+import { USERTYPE } from 'const';
+
 export default {
 	components: {
 		Navbar
@@ -45,19 +47,23 @@ export default {
 						link: `${subPath}/repos`,
 						title: 'Repositories',
 						num: repos
-					}, {
-						link: `${subPath}/stars`,
-						title: 'Stars',
-						num: ''
-					}, {
-						link: `${subPath}/followers`,
-						title: 'Follwers',
-						num: followers
-					}, {
-						link: `${subPath}/following`,
-						title: 'Following',
-						num: following
 					}];
+					// Organization组织类型的用户没有下述菜单内容
+					if(data.type == USERTYPE) {
+						_this.navList.push(...[{
+							link: `${subPath}/stars`,
+							title: 'Stars',
+							num: ''
+						}, {
+							link: `${subPath}/followers`,
+							title: 'Follwers',
+							num: followers
+						}, {
+							link: `${subPath}/following`,
+							title: 'Following',
+							num: following
+						}]);
+					}
 				}, response => {
 					// 获取数据出错，返回原来的路由
 

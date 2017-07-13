@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { formatNumber } from 'util';
+
 export default {
 	props: ['list'],
 	filters: {
@@ -25,11 +27,7 @@ export default {
 		},
 		// 格式化数字为以k为单位的字符串
 		formatNum(value) {
-			if(!value) {
-				return value;
-			}
-
-			return parseInt(value) >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
+			return formatNumber(value);
 		}
 	}
 };

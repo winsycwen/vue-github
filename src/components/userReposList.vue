@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { formatNumber} from 'util';
+
 export default {
 	props: ['list'],
 	filters: {
@@ -31,11 +33,7 @@ export default {
 		},
 		// 格式化数字为以k为单位的字符串
 		formatNum(value) {
-			if(!value) {
-				return value;
-			}
-
-			return parseInt(value) >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
+			return formatNumber(value);
 		}
 	}
 };
@@ -109,8 +107,10 @@ export default {
 }
 
 .component-user-repos-list-empty {
+	margin: 0;
 	padding: 45px;
 	text-align: center;
 	color: #586069;
+    background-color: #fff;
 }
 </style>

@@ -62,12 +62,14 @@ export default {
 			_this.$http
 				.get(url, {
 					params: {
+						page: 1,
+						per_page: 3,
 						sort: 'pushed',
-						direction: 'asc'
+						direction: 'desc'
 					}
 				})
 				.then(response => {
-					_this.reposContribute = response.body.slice(-3);
+					_this.reposContribute = response.body;
 				}, response => {
 					alert(response.statusText);
 				});
@@ -81,9 +83,14 @@ export default {
 				url = 'https://api.github.com/users/winsycwen/starred';
 
 			_this.$http
-				.get(url)
+				.get(url, {
+					params: {
+						page: 1,
+						per_page: 10
+					}
+				})
 				.then(response => {
-					_this.reposStarred = response.body.slice(0, 10);
+					_this.reposStarred = response.body;
 				}, response => {
 					alert(response.statusText);
 				});
