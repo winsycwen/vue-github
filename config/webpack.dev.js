@@ -63,6 +63,10 @@ module.exports = {
 					publicPath: './'
 				}
 			}]
+		}, {
+			// 处理js文件
+			test: /\.js$/,
+			use: 'babel-loader'
 		}]
 	},
 	devServer: {
