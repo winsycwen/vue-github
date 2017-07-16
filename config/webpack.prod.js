@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = JSON.stringify('production');
 
 var webpack = require('webpack');
 var Merge = require('webpack-merge');
@@ -10,7 +10,9 @@ module.exports = Merge(commonConfig, {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('prod')
+			'process.env': {
+				NODE_ENV: process.env.NODE_ENV
+			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {

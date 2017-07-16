@@ -1,5 +1,5 @@
 if(!process.env.NODE_ENV) {
-	process.env.NODE_ENV = 'development';
+	process.env.NODE_ENV = JSON.stringify('development');
 }
 
 var path = require('path');
@@ -28,7 +28,7 @@ module.exports = {
 							use: [{
 								loader: 'css-loader',
 								options: {
-									minimize: process.env.NODE_ENV == "production"
+									minimize: process.env.NODE_ENV == JSON.stringify('production')
 								}
 							}, 'sass-loader'],
 							fallback: 'vue-style-loader'
@@ -44,7 +44,7 @@ module.exports = {
 				use: [{
 					loader: 'css-loader',
 					options: {
-						minimize: process.env.NODE_ENV == "production"
+						minimize: process.env.NODE_ENV == JSON.stringify('production')
 					}
 				}, 'sass-loader'],
 				fallback: 'vue-style-loader'
