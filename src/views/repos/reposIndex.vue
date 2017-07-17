@@ -33,19 +33,6 @@
 			</div>
 		</div>
 
-		<!-- README.MD -->
-		<div class="bubble">
-			<div class="bubble-wrap">
-				<div class="bubble-title">
-					<h2>README.md</h2>
-				</div>
-				<div class="content">hello world</div>
-			</div>
-			<div class="bubble-btn">
-				<a class="btn" href="javascript:void(0);">View all of README.md</a>
-			</div>
-		</div>
-
 		<!-- issues信息 -->
 		<div class="bubble">
 			<div class="bubble-wrap">

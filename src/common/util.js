@@ -1,20 +1,28 @@
 // 格式化时间字符串
 function formatTime(time) {
 	let now = new Date(),
+		date = new Date(time),
 		str = '',
-		diff = Math.round(now - new Date(time))/1000;
+		diff = Math.round((now - date)/1000);
 
 	if(diff >= 1 && diff < 60) {
 		// 1秒至60秒之间
-		str = `${diff} seconds`;
+		str = `about ${diff} seconds ago`;
 	} else if(diff >= 60 && diff < 3600) {
 		// 1分钟至60分钟之间
-		str = `${parseInt(diff/60)} miniutes`;
+		str = `about ${Math.round(diff/60)} miniutes ago`;
 	} else if(diff >= 3600 && diff < 86400) {
 		// 1小时至24小时之间
-		str = `${parseInt(diff/3600)} hours`;
+		str = `about ${Math.round(diff/3600)} hours ago`;
+	} else if(diff >= 86400 && diff < 2592000) {
+		// 1天至30天之间
+		str = `about ${Math.round(diff/86400)} days ago`;
 	} else {
-		str = `${parseInt(diff/3600)} days`;
+		// 具体到年月日
+		let year = date.getFullYear(),
+			month = date.getMonth() + 1,
+			day = date.getDate();
+		str = `on ${day} ${month} ${year}`;
 	}
 	return str;
 }

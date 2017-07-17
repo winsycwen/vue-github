@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Navbar from '../components/navbar.vue';
-import ReposList from '../components/reposList.vue';
+import Navbar from '../../components/navbar.vue';
+import ReposList from '../../components/reposList.vue';
 
 export default {
 	components: {
@@ -104,8 +104,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/fonts/fonts.scss';
-@import '../assets/css/mixins.scss';
+@import '../../assets/fonts/fonts.scss';
+@import '../../assets/css/mixins.scss';
 
 .dashboard {
 	// 搜索栏

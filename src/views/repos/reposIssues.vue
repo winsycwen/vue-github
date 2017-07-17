@@ -20,7 +20,13 @@
 							<a class="link" href="javascript:void(0);">{{issue.title}}</a>
 							<span class="floor">#{{issue.number}}</span>
 						</div>
-						<span class="time">Opened by {{issue.user.login}} about {{issue.updated_at | formatTime}} ago</span>
+						<!-- opened issue时间显示 -->
+						<span class="time" v-if="currentNav.title=='Open'">Opened by {{issue.user.login}} {{issue.updated_at | formatTime}}</span>
+
+						<!-- closed issue时间显示 -->
+						<span class="time" v-else>
+						Closed by {{issue.user.login}} {{issue.closed_at | formatTime}}
+						</span>
 					</li>
 					<li v-if="!issuesList.length">
 						<p class="empty">No message to show.</p>
@@ -30,7 +36,7 @@
 		</div>
 
 		<!-- 分页 -->
-		<Pagination :paging="paging" @goto=""></Pagination>
+		<Pagination :paging="paging" @goto="getIssues"></Pagination>
 	</div>
 </template>
 
@@ -70,12 +76,12 @@ export default {
 	methods: {
 		toggleTab(item) {
 			this.currentNav = item;
-			this.getIssues(item);
+			this.getIssues();
 		},
-		getIssues(obj) {
-			var state = obj.state || 'open';
-			let url = `https://api.github.com/repos/${this.$route.params.user}/${this.$route.params.name}/issues?state=${state}&page=1&per_page=10`,
-				_this = this;
+		getIssues(url) {
+			var state = this.currentNav.state || 'open',
+				url = url || `https://api.github.com/repos/${this.$route.params.user}/${this.$route.params.name}/issues?state=${state}&page=1&per_page=10`;
+			let _this = this;
 			
 			_this.loading = true;
 			_this.paging = [];
@@ -107,7 +113,7 @@ export default {
 		}
 	},
 	created() {
-		this.getIssues(this.currentNav);
+		this.getIssues();
 	}
 };
 </script>

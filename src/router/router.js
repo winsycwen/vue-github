@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Dashboard from '../views/dashboard.vue';
+// 首页
+import Dashboard from '../views/dashboard/dashboard.vue';
 
+// 用户相关页
 import User from '../views/user/user.vue';
 import UserIndex from '../views/user/userIndex.vue';
 import UserRepos from '../views/user/userRepos.vue';
@@ -10,6 +12,7 @@ import UserStars from '../views/user/userStars.vue';
 import UserFollowers from '../views/user/userFollowers.vue';
 import UserFollowing from '../views/user/userFollowing.vue';
 
+// 仓库相关页
 import Repos from '../views/repos/repos.vue';
 import ReposIndex from '../views/repos/reposIndex.vue';
 import ReposIssues from '../views/repos/reposIssues.vue';
