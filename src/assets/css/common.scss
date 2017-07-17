@@ -1,0 +1,63 @@
+@import 'normalize';
+
+body {
+	font-size: 14px;
+	background-color: #fafbfc;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.hide {
+	display: none;
+}
+
+// 清除浮动
+.clearfix {
+	display: block;
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+// loading图标
+.loading {
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	&:before {
+		display: inline-block;
+		content: '';
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		border: 3px solid transparent;
+		border-top-color: rgba(3, 102, 214, 0.6);
+		border-right-color: rgba(3, 102, 214, 0.6);
+		vertical-align: middle;
+		animation: loading 1s infinite linear;
+	}
+}
+
+@keyframes loading {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+// 字体图标
+@font-face {
+	font-family: 'iconfont';
+	src: url('../fonts/iconfont.ttf') format('truetype'),
+		url('../fonts/iconfont.svg') format('svg');
+}
