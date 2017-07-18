@@ -7,7 +7,7 @@
 [https://winsycwen.github.io/vue-github](https://winsycwen.github.io/vue-github)
 
 
-![二维码](http://qr.api.cli.im/qr?data=https%3A%2F%2Fgithub.com%2Fwinsycwen%2Fvue-github%2Fedit%2Fmaster%2FREADME.md&level=H&transparent=0&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=52d9e2641caf209d4dcf92509f485867)
+![二维码](http://qr.api.cli.im/qr?data=https%3A%2F%2Fwinsycwen.github.io%2Fvue-github%2F%23%2F&level=H&transparent=0&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=0ddadfb7ff087279da5268e85b33839e)
 
 ## 项目目录介绍
 
