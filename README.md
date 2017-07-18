@@ -1,6 +1,13 @@
 # vue-github 单页应用
 
-初始化项目时没有使用vue-cli初始化项目
+简介：模仿github界面，实现首页、User/Organization首页、User/Organization拥有的/收藏的仓库列表页、User关注/被关注列表页、仓库首页、仓库Issue列表页；技术栈采用：vue2、vue-router、vue-resource以及webpack。
+
+## Demo地址
+
+[https://winsycwen.github.io/vue-github](https://winsycwen.github.io/vue-github)
+
+
+![二维码](http://qr.api.cli.im/qr?data=https%3A%2F%2Fgithub.com%2Fwinsycwen%2Fvue-github%2Fedit%2Fmaster%2FREADME.md&level=H&transparent=0&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=52d9e2641caf209d4dcf92509f485867)
 
 ## 项目目录介绍
 
