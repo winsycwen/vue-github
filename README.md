@@ -2,7 +2,13 @@
 
 简介：模仿github界面，实现首页、User/Organization首页、User/Organization拥有的/收藏的仓库列表页、User关注/被关注列表页、仓库首页、仓库Issue列表页；技术栈采用：vue2、vue-router、vue-resource以及webpack。
 
+## 效果预览
+
+![效果图预览](https://winsycwen.github.io/vue-github/demo/demo.gif)
+
 ## Demo地址
+
+> 注意：由于所有页面数据均来自Github API，而再未经授权的情况下，一个小时内所能发出的请求为60条。所以，目前在浏览页面过程中，有可能会因请求频繁而被终止当前请求。
 
 [https://winsycwen.github.io/vue-github](https://winsycwen.github.io/vue-github)
 
@@ -17,11 +23,11 @@
 		|-webpack.dev.js
 		|-webpack.prod.js
 	|-dist				最终编译后的代码目录
-	|-node_modules		package依赖
+	|-node_modules			package依赖
 	|-src				源代码目录
 		|-assets		静态资源（公用样式、字体图标样式等）
 		|-common		公共函数方法
-		|-components	公用组件
+		|-components		公用组件
 		|-router		路由配置
 		|-views			所有页面
 	|-App.vue
@@ -30,7 +36,7 @@
 	|-.gitignore
 	|-package.json
 	|-README.md
-	|-webpack.config.js	webpack配置文件
+	|-webpack.config.js		webpack配置文件
 ```
 
 ## 在本地运行
